@@ -1,3 +1,4 @@
+// TODO: how to use offlineFallback?
 const { offlineFallback, warmStrategyCache } = require('workbox-recipes');
 const { CacheFirst } = require('workbox-strategies');
 const { registerRoute } = require('workbox-routing');
@@ -27,4 +28,8 @@ warmStrategyCache({
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
-registerRoute();
+registerRoute(
+  // callback to filter requests we want to cash
+  ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
+  // Use offlineFallback instead of StaleWhileRevaluate
+);
