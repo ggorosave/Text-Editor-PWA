@@ -1,6 +1,6 @@
 // TODO: how to use offlineFallback?
 const { offlineFallback, warmStrategyCache } = require('workbox-recipes');
-const { CacheFirst } = require('workbox-strategies');
+const { CacheFirst, StaleWhileRevalidate } = require('workbox-strategies');
 const { registerRoute } = require('workbox-routing');
 const { CacheableResponsePlugin } = require('workbox-cacheable-response');
 const { ExpirationPlugin } = require('workbox-expiration');
@@ -28,8 +28,18 @@ warmStrategyCache({
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
+// StaleWhileRevalidate recipe?
 registerRoute(
   // callback to filter requests we want to cash
   ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
-  // Use offlineFallback instead of StaleWhileRevaluate
+  new StaleWhileRevalidate({
+    pageCache,
+  })
 );
+
+// Use offlineFallback instead of StaleWhileRevalidate?
+// registerRoute(
+//   // callback to filter requests we want to cash
+//   ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
+  
+// );
