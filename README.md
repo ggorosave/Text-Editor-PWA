@@ -1,5 +1,5 @@
 # Text-Editor-PWA
-![License](https://img.shields.io/badge/License-MIT-blue)
+![License](https://img.shields.io/badge/License-MIT-blue) https://img.shields.io/badge/JavaScript-64.1%25-brightgreen https://img.shields.io/badge/CSS-26%25-blue https://img.shields.io/badge/HTML-9.9%25-red
 
 ## Description
 Sometimes, users want to use certain types of websites, like a text editor, even when they don't have a web connection and **progressive web applications** allow them to do that. Text Editor PWA is a progressive web application built with [Node.js](https://nodejs.org/en/), [Express](https://www.npmjs.com/package/express), [Webpack](https://webpack.js.org/), [Workbox](https://developer.chrome.com/docs/workbox/), a whole lot of plugins (check the `package.json` in the client folder), and of course, JavaScript, HTML, and CSS. The application was deployed through [Heroku](https://www.heroku.com/).
